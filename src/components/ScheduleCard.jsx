@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchChannelSchedule } from '../channelApiService';
-import moment from 'moment';
 import TvShowItems from './TvShowItems';
+import { DateTime } from 'luxon';
 
 export default function ScheduleCard({ channel }) {
 	const [scheduleItems, setScheduleItems] = useState();
@@ -14,7 +14,7 @@ export default function ScheduleCard({ channel }) {
 		});
 	}, [channel]);
 
-	const today = moment().format('D/MM/YYYY');
+	const today = DateTime.now().toFormat('dd/MM/yyyy');
 
 	if (!channel) return <></>;
 

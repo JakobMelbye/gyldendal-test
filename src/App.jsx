@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchAllChannels } from './channelApiService.js';
-import { Schedule } from './components/Schedule.jsx';
+import ScheduleCard from './components/ScheduleCard.jsx';
 
 function App() {
 	const [pageTitle, setPageTitle] = useState('');
@@ -40,7 +40,7 @@ function App() {
 						</ul>
 					</div>
 					<div className='col'>
-						<Schedule channel={selectedChannel} />
+						<ScheduleCard channel={selectedChannel} />
 					</div>
 				</div>
 			</div>

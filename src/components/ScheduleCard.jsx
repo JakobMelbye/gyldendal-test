@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { fetchChannelSchedule } from '../channelApiService';
 import moment from 'moment';
-import { ScheduleItems } from './ScheduleItems';
+import TvShowItems from './TvShowItems';
 
-export function Schedule({ channel }) {
+export default function ScheduleCard({ channel }) {
 	const [scheduleItems, setScheduleItems] = useState();
 
 	useEffect(() => {
@@ -19,17 +19,14 @@ export function Schedule({ channel }) {
 	if (!channel) return <></>;
 
 	return (
-		<div className='card'>
-			<div className='card-body'>
-				<span className='card-title d-flex flex-row d-flex'>
-					<img src={channel?.images?.logo} height={40} className='me-3 a' />
-					<h2>{channel.title}</h2>
-				</span>
-				<h4 className='mt-2'>{today}</h4>
-				<hr />
-				<p className='card-text'>{channel?.id}</p>
-				<ScheduleItems items={scheduleItems} />
-			</div>
+		<div className='border p-3' style={{ maxHeight: '75vh', overflow: 'auto' }}>
+			<span className='card-title d-flex flex-row d-flex'>
+				<img src={channel?.images?.logo} height={40} className='me-3 a' />
+				<h2>{channel.title}</h2>
+			</span>
+			<h4 className='mt-2'>{today}</h4>
+			<hr />
+			<TvShowItems items={scheduleItems} />
 		</div>
 	);
 }

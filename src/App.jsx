@@ -4,7 +4,7 @@ import ScheduleCard from './components/ScheduleCard.jsx';
 
 function App() {
 	const [pageTitle, setPageTitle] = useState('');
-	const [drChannels, setDrChannels] = useState([]);
+	const [channels, setChannels] = useState([]);
 	const [selectedChannel, setSelectedChannel] = useState();
 
 	function onClickChannel(channel) {
@@ -13,7 +13,7 @@ function App() {
 
 	useEffect(() => {
 		fetchAllChannels().then(data => {
-			setDrChannels(data.items);
+			setChannels(data.items);
 			setPageTitle(data.title);
 		});
 	}, []);
@@ -27,7 +27,7 @@ function App() {
 				<div className='row mt-4'>
 					<div className='col'>
 						<ul className='list-group'>
-							{drChannels.map(channel => (
+							{channels.map(channel => (
 								<a
 									key={channel.id}
 									onClick={() => onClickChannel(channel)}

@@ -19,9 +19,9 @@ export default function ScheduleCard({ channel }) {
 	if (!channel) return <></>;
 
 	return (
-		<div className='border p-3' style={{ maxHeight: '75vh', overflow: 'auto' }}>
+		<div className='border rounded p-3' style={{ maxHeight: '75vh', overflow: 'auto' }}>
 			<span className='card-title d-flex flex-row d-flex'>
-				<img src={channel?.images?.logo} height={40} className='me-3 a' />
+				<img src={channel?.images?.logo} height={40} className='me-3' />
 				<h2>{channel.title}</h2>
 			</span>
 			<h4 className='mt-2'>{today}</h4>

@@ -33,7 +33,9 @@ function App() {
 									onClick={() => onClickChannel(channel)}
 									className='list-group-item list-group-item-action d-flex align-items-center'
 								>
-									<img src={channel.images.logo} height={25} className='me-3' />
+									<span>
+										<img src={channel.images.logo} height={25} className='me-3' />
+									</span>
 									<span>{channel.title}</span>
 								</a>
 							))}
